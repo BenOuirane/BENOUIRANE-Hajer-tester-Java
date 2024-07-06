@@ -25,18 +25,11 @@
             <artifactId>log4j-core</artifactId>
             <version>2.12.1</version>
         </dependency>
-            <dependency>
-           <groupId>org.postgresql</groupId>
-           <artifactId>postgresql</artifactId>
-           <version>42.2.23</version> 
-        </dependency>
-        <!--
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>8.0.17</version>
         </dependency>
-        -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
@@ -68,12 +61,11 @@
         </dependency>
     </dependencies>
 
-   <build>
+    <build>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-assembly-plugin</artifactId>
-                <version>3.6.0</version>
                 <executions>
                     <execution>
                         <phase>package</phase>
@@ -89,7 +81,7 @@
                                 </manifest>
                             </archive>
                             <descriptorRefs>
-                                <descriptorRef>jar-with-dependencies</descriptorRef>
+                                <descriptorRef>executable-jar-with-dependencies</descriptorRef>
                             </descriptorRefs>
                         </configuration>
                     </execution>
@@ -148,28 +140,7 @@
                     </execution>
                 </executions>
             </plugin>
-        	<plugin>
-			  <groupId>com.github.spotbugs</groupId>
-			  <artifactId>spotbugs-maven-plugin</artifactId>
-			  <version>4.7.2.1</version>
-			  <dependencies>
-			    <dependency>
-			      <groupId>com.github.spotbugs</groupId>
-			      <artifactId>spotbugs</artifactId>
-			      <version>4.7.3</version>
-			    </dependency>
-			  </dependencies>
-			</plugin>
         </plugins>
     </build>
-    <reporting>
-    <plugins>
-      <plugin>
-        <groupId>com.github.spotbugs</groupId>
-        <artifactId>spotbugs-maven-plugin</artifactId>
-        <version>4.7.3.5</version>
-      </plugin>
-    </plugins>
-  </reporting>
 
 </project>
