@@ -9,13 +9,20 @@ import java.sql.*;
 public class DataBaseTestConfig extends DataBaseConfig {
 
     private static final Logger logger = LogManager.getLogger("DataBaseTestConfig");
-
+    public Connection getConnection() throws ClassNotFoundException, SQLException {
+        logger.info("Create DB connection");
+        Class.forName("org.postgresql.Driver");
+        return DriverManager.getConnection(
+                "jdbc:postgresql://localhost:5432/test", "postgres", "123");
+    }
+    /*
     public Connection getConnection() throws ClassNotFoundException, SQLException {
         logger.info("Create DB connection");
         Class.forName("com.mysql.cj.jdbc.Driver");
         return DriverManager.getConnection(
                 "jdbc:mysql://localhost:3306/test","root","rootroot");
     }
+    */
 
     public void closeConnection(Connection con){
         if(con!=null){
