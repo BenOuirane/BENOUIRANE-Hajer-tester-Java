@@ -17,16 +17,24 @@ import com.parkit.parkingsystem.model.Ticket;
 <span class="fc" id="L17">        long seconds = ((durationMillis % (1000 * 60 * 60)) % (1000 * 60)) / 1000;</span>
 <span class="fc" id="L18">        double totalHours = hours + (minutes / 60.0) + (seconds / 3600.0);</span>
 <span class="pc bpc" id="L19" title="1 of 3 branches missed.">        switch (ticket.getParkingSpot().getParkingType()){</span>
-            case CAR: {
-<span class="fc" id="L21">                ticket.setPrice(totalHours * Fare.CAR_RATE_PER_HOUR);</span>
-<span class="fc" id="L22">                break;</span>
-            }
-            case BIKE: {
-<span class="fc" id="L25">                ticket.setPrice(totalHours * Fare.BIKE_RATE_PER_HOUR);</span>
-<span class="fc" id="L26">                break;</span>
-            }
-<span class="nc" id="L28">            default: throw new IllegalArgumentException(&quot;Unkown Parking Type&quot;);</span>
+        	 case CAR: {
+<span class="fc bfc" id="L21" title="All 2 branches covered.">             	if (totalHours &lt; 0.50) {</span>
+<span class="fc" id="L22">               		 ticket.setPrice(0);</span>
+                    }
+               	 else {
+<span class="fc" id="L25">                   ticket.setPrice(totalHours * Fare.CAR_RATE_PER_HOUR); }</span>
+<span class="fc" id="L26">                   break;</span>
+             }
+             case BIKE: {
+<span class="fc bfc" id="L29" title="All 2 branches covered.">             	if (totalHours &lt; 0.50) {</span>
+<span class="fc" id="L30">              		 ticket.setPrice(0);</span>
+                   }
+             else {
+<span class="fc" id="L33">               ticket.setPrice(totalHours * Fare.BIKE_RATE_PER_HOUR); }</span>
+<span class="fc" id="L34">               break;</span>
+             }
+<span class="nc" id="L36">            default: throw new IllegalArgumentException(&quot;Unkown Parking Type&quot;);</span>
         }
-<span class="fc" id="L30">    }</span>
+<span class="fc" id="L38">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
