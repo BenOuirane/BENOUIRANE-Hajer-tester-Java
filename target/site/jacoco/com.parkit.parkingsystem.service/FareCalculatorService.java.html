@@ -5,7 +5,7 @@ import com.parkit.parkingsystem.model.Ticket;
 
 <span class="fc" id="L6">public class FareCalculatorService {</span>
 
-    public void calculateFare(Ticket ticket){
+    public void calculateFare(Ticket ticket, boolean discount){
 <span class="pc bpc" id="L9" title="1 of 4 branches missed.">        if( (ticket.getOutTime() == null) || (ticket.getOutTime().before(ticket.getInTime())) ){</span>
 <span class="fc" id="L10">            throw new IllegalArgumentException(&quot;Out time provided is incorrect:&quot;+ticket.getOutTime().toString());</span>
         }
@@ -35,6 +35,14 @@ import com.parkit.parkingsystem.model.Ticket;
              }
 <span class="nc" id="L36">            default: throw new IllegalArgumentException(&quot;Unkown Parking Type&quot;);</span>
         }
-<span class="fc" id="L38">    }</span>
+<span class="fc bfc" id="L38" title="All 2 branches covered.">        if (discount) {</span>
+<span class="fc" id="L39">            ticket.setPrice(ticket.getPrice() * 0.95);</span>
+        }
+<span class="fc" id="L41">    }</span>
+    
+    public void calculateFare(Ticket ticket) {
+<span class="fc" id="L44">        FareCalculatorService fareCalculatorService = new FareCalculatorService();</span>
+<span class="fc" id="L45">    	fareCalculatorService.calculateFare(ticket, false);</span>
+<span class="fc" id="L46">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

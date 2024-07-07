@@ -1,6 +1,5 @@
 package com.parkit.parkingsystem.model;
 
-import java.util.Calendar;
 import java.util.Date;
 
 public class Ticket {
@@ -11,7 +10,7 @@ public class Ticket {
     private Date inTime;
     private Date outTime;
 
-    public int getId() {
+	public int getId() {
         return id;
     }
 
@@ -58,4 +57,14 @@ public class Ticket {
     public void setOutTime(Date outTime) {
         this.outTime = outTime;
     }
+
+	public Ticket() {
+		super();
+	}
+
+	public Ticket(int i, ParkingSpot parkingSpot2, String string, int j,
+			Date date) {
+		// TODO Auto-generated constructor stub
+	}
+    
 }
