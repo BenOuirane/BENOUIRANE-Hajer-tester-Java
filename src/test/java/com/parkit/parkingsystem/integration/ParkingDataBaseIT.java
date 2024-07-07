@@ -109,6 +109,5 @@ public class ParkingDataBaseIT {
 		assertNotNull(savedTicket);
 		assertEquals(2, ticketDAO.getNbTicket("ABCDEF"));
 		assertNotSame(0, savedTicket.getPrice());
-       }
-    
+       }   
 }

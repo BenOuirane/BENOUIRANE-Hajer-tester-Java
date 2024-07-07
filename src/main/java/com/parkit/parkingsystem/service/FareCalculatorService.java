@@ -38,8 +38,7 @@ public class FareCalculatorService {
         if (discount) {
             ticket.setPrice(ticket.getPrice() * 0.95);
         }
-    }
-    
+    }    
     public void calculateFare(Ticket ticket) {
         FareCalculatorService fareCalculatorService = new FareCalculatorService();
     	fareCalculatorService.calculateFare(ticket, false);

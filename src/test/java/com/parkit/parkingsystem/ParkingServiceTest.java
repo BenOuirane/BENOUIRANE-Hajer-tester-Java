@@ -50,7 +50,7 @@ public class ParkingServiceTest {
 	    @Test
 	    public void processExitingVehicleTest() throws Exception{
 	        when(ticketDAO.getTicket(anyString())).thenReturn(ticket);
-	    //    when(ticketDAO.updateTicket(any(Ticket.class))).thenReturn(true);
+	      //when(ticketDAO.updateTicket(any(Ticket.class))).thenReturn(true);
 	        when(inputReaderUtil.readVehicleRegistrationNumber()).thenReturn("ABCDEF");
 	        // Arrange
 	  	    ParkingSpot parkingSpot = new ParkingSpot(1, ParkingType.CAR,false);
@@ -60,14 +60,16 @@ public class ParkingServiceTest {
 	        // Act
 	        parkingService.processExitingVehicle();
 	        // Assert
-	 //       verify(parkingSpotDAO, Mockito.times(1)).updateParking(any(ParkingSpot.class));
-	  //      verify(parkingSpotDAO).updateParking(parkingSpot);
-	 //       verify(ticketDAO).updateTicket(ticket); 
+	        /*
+	        verify(parkingSpotDAO, Mockito.times(1)).updateParking(any(ParkingSpot.class));
+	        verify(parkingSpotDAO).updateParking(parkingSpot);
+	        verify(ticketDAO).updateTicket(ticket); 
+	        */
 	    }
 	    
 	    @Test
 	    public void testProcessIncomingVehicle() throws Exception {  
-	      //GIVEN
+	        //GIVEN
 			ParkingSpot parkingSpot = new ParkingSpot(1, ParkingType.CAR, false);
 			//WHEN
 			when(inputReaderUtil.readSelection()).thenReturn(1);
@@ -118,7 +120,6 @@ public class ParkingServiceTest {
 	          assertThat(parkingSpot).isEqualTo(null);
 	   	 }
 	    
-
 	    @Test
 	    public void testGetNextParkingNumberIfAvailableParkingNumberWrongArgument() {
 	    	// Arrange

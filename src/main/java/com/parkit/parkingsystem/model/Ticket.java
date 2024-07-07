@@ -64,7 +64,6 @@ public class Ticket {
 
 	public Ticket(int i, ParkingSpot parkingSpot2, String string, int j,
 			Date date) {
-		// TODO Auto-generated constructor stub
 	}
     
 }
